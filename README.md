@@ -15,14 +15,14 @@ Students build each security gate from scratch using `TODO#` markers in `.github
 
 ## Workshop Overview
 
-| Session | Gate | Tool | Finds |
-|---------|------|------|-------|
-| 0 | Setup | GitHub Actions | Pipeline wiring, permissions |
-| 1 | GATE#0 | TruffleHog + Gitleaks | Secrets in code/history |
-| 2 | GATE#1a | SonarQube | SAST → Sonar dashboard |
-| 3 | GATE#1b | CodeQL | SAST → GitHub Security tab |
-| 4 | GATE#2 | OWASP Dependency-Check | CVEs in npm deps |
-| 5 | GATE#3 | Trivy | CVEs in Docker image |
+| Session | Gate    | Tool                   | Finds                        |
+| ------- | ------- | ---------------------- | ---------------------------- |
+| 0       | Setup   | GitHub Actions         | Pipeline wiring, permissions |
+| 1       | GATE#0  | TruffleHog + Gitleaks  | Secrets in code/history      |
+| 2       | GATE#1a | SonarQube              | SAST → Sonar dashboard       |
+| 3       | GATE#1b | CodeQL                 | SAST → GitHub Security tab   |
+| 4       | GATE#2  | OWASP Dependency-Check | CVEs in npm deps             |
+| 5       | GATE#3  | Trivy                  | CVEs in Docker image         |
 
 ---
 
@@ -39,7 +39,8 @@ docker run --rm -p 8080:3000 highly-exploitable-site
 ## Workshop Tasks — TODO Guide
 
 All tasks live in `.github/workflows/helpme.yaml`.  
-Fill each `TODO#` in order. Push to `main` to trigger the pipeline. Check results in:
+Fill each `TODO#` in order. Push to `main` to trigger the pipeline. Check results in::
+
 - **Actions tab** → job logs
 - **Security tab** → SARIF findings (CodeQL, Gitleaks, Depcheck, Trivy)
 - **SonarCloud dashboard** → Sonar findings
@@ -126,14 +127,14 @@ Trivy severity docs: https://aquasecurity.github.io/trivy/latest/docs/configurat
 
 ## Where to See Results
 
-| Result type | Location |
-|-------------|----------|
-| Secrets (Gitleaks) | Security tab → Code scanning |
-| Secrets (TruffleHog) | Actions tab → job log |
-| SAST (CodeQL) | Security tab → Code scanning |
-| SAST (SonarQube) | https://sonarcloud.io → your project |
-| SCA (Depcheck) | Security tab + Actions → Artifacts |
-| Container (Trivy) | Security tab + Actions → Artifacts |
+| Result type          | Location                             |
+| -------------------- | ------------------------------------ |
+| Secrets (Gitleaks)   | Security tab → Code scanning         |
+| Secrets (TruffleHog) | Actions tab → job log                |
+| SAST (CodeQL)        | Security tab → Code scanning         |
+| SAST (SonarQube)     | https://sonarcloud.io → your project |
+| SCA (Depcheck)       | Security tab + Actions → Artifacts   |
+| Container (Trivy)    | Security tab + Actions → Artifacts   |
 
 ---
 
@@ -141,9 +142,9 @@ Trivy severity docs: https://aquasecurity.github.io/trivy/latest/docs/configurat
 
 Add in repo → Settings → Secrets and variables → Actions:
 
-| Secret | Where to get |
-|--------|-------------|
-| `SONAR_TOKEN` | https://sonarcloud.io → My Account → Security |
+| Secret         | Where to get                                      |
+| -------------- | ------------------------------------------------- |
+| `SONAR_TOKEN`  | https://sonarcloud.io → My Account → Security     |
 | `GITHUB_TOKEN` | Auto-provided by GitHub Actions — no setup needed |
 
 ---
